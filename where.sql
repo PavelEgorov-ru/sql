@@ -50,3 +50,26 @@ WHERE city IN('Berlin', 'London', 'Madrid');
 SELECT contact_name, city
 FROM customers 
 WHERE city NOT IN('Berlin', 'London', 'Madrid');
+
+--сортировка по возрастанию поля
+-- неявно происходит сортировка по возрастанию
+SELECT DISTINCT country
+FROM customers
+ORDER BY country
+
+-- идентичный запрос
+SELECT DISTINCT country
+FROM customers
+ORDER BY country ASC
+
+-- по убыванию
+SELECT DISTINCT country
+FROM customers
+ORDER BY country DESC
+
+-- Ппо убываю страны, по возрастанию города
+-- внутри каждой страны, которыеидут по убыванию
+-- города отсортированы по возрастанию
+SELECT DISTINCT country, city
+FROM customers
+ORDER BY country DESC, city ASC
