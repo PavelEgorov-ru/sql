@@ -73,3 +73,22 @@ ORDER BY country DESC
 SELECT DISTINCT country, city
 FROM customers
 ORDER BY country DESC, city ASC
+
+
+-- все заказы из лодно в период с по
+SELECT ship_city, order_date
+FROM orders
+WHERE ship_city='London' AND (order_date BETWEEN '1996-01-01' and '1998-09-01')
+ORDER BY order_date DESC
+
+-- минимальная дата заказа из этого периода в городе Лондон
+-- аналогично максимальна дата MAX(order_date)
+SELECT MIN(order_date)
+FROM orders
+WHERE ship_city='London' AND (order_date BETWEEN '1996-01-01' and '1998-09-01')
+
+
+-- средняя цена товаров
+SELECT AVG(unit_price)
+FROM products
+WHERE discontinued <> 1
