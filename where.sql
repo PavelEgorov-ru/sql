@@ -36,7 +36,9 @@ SELECT contact_name, city
 FROM customers 
 WHERE city = 'Berlin' OR city = 'London' OR city = 'Madrid'
 
--- Диапазон включает в себя значения указанных дат
+-- BETWEEN включает в себя указанные границы
+-- если одна или обе границы не включаются, тогда уже описывать
+-- диапозон с помощью x > 1 AND x < 10 
 SELECT order_date
 FROM orders
 WHERE order_date BETWEEN '1996-08-01' and '1996-09-01';
